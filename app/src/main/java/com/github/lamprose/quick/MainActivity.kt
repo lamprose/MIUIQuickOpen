@@ -1,13 +1,14 @@
 package com.github.lamprose.quick
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentActivity
 import com.stericson.RootShell.exceptions.RootDeniedException
 import com.stericson.RootShell.execution.Command
 import com.stericson.RootTools.RootTools
@@ -16,13 +17,35 @@ import java.util.concurrent.TimeoutException
 
 
 class MainActivity : AppCompatActivity() {
+    var context: Context? = null
+    var handler: Handler? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        context = this
+        handler = Handler(mainLooper) {
+            when (it.what) {
+                0 -> {
+                    packageManager.setComponentEnabledSetting(
+                        ComponentName(this@MainActivity, context!!::class.java.name + "Alias"),
+                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                        PackageManager.DONT_KILL_APP
+                    )
+                }
+                1 -> {
+                    packageManager.setComponentEnabledSetting(
+                        ComponentName(this@MainActivity, context!!::class.java.name + "Alias"),
+                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                        PackageManager.DONT_KILL_APP
+                    )
+                }
+            }
+            false
+        }
         addToolbar()
         //加载PrefFragment
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment, SettingFragment())
+            .add(R.id.fragment, SettingFragment(handler!!))
             .commit()
     }
 
@@ -32,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun addToolbar(){
+    private fun addToolbar() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         toolbar.setOnMenuItemClickListener {

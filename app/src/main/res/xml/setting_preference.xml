@@ -6,6 +6,14 @@
         android:title="@string/pref_top_title_text"
         android:summary="@string/pref_top_title_summary"/>
     <PreferenceCategory
+        android:title="@string/pref_app_setting_title_text">
+        <SwitchPreference
+            android:title="@string/hide_app_icon_text"
+            android:summaryOn="@string/hide_app_icon_on_summary"
+            android:summaryOff="@string/hide_app_icon_off_summary"
+            android:key="hideAppIcon"/>
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/pref_title_text">
         <EditTextPreference
             android:dialogTitle="@string/wechat_pay_title"

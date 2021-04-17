@@ -1,17 +1,22 @@
 package com.github.lamprose.quick
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Context.MODE_WORLD_READABLE
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.TextUtils
-import android.widget.Toast
-import androidx.preference.*
+import android.os.Handler
+import androidx.preference.EditTextPreference
+import androidx.preference.SwitchPreference
 
-class SettingFragment() : BasePreferenceFragment(),
-    SharedPreferences.OnSharedPreferenceChangeListener {
+class SettingFragment(private val handler: Handler) : BasePreferenceFragment() {
     var pref: SharedPreferences? = null;
+    val editArray = arrayOf(
+        "WechatPayItem",
+        "WechatScanItem",
+        "XiaoaiItem",
+        "AlipayScanItem",
+        "AlipayPayItem"
+    )
 
 
     @SuppressLint("WorldReadableFiles")
@@ -28,28 +33,26 @@ class SettingFragment() : BasePreferenceFragment(),
         } catch (e: SecurityException) {
             null
         }
-        pref?.all?.forEach { (key, value) ->
-            findPreference<EditTextPreference>(key)?.apply {
-                summary = value as CharSequence?
-                text = value.toString()
+        initData()
+    }
+
+    private fun initData() {
+        editArray.forEach {
+            findPreference<EditTextPreference>(it)?.apply {
+                summary = pref!!.getString(it, null)
+                text = pref!!.getString(it, null)
+                setOnPreferenceChangeListener { preference, newValue ->
+                    summary = newValue as CharSequence?
+                    true
+                }
             }
-
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        preferenceManager.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        preferenceManager.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
-    }
-
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        findPreference<EditTextPreference>(key!!)?.apply {
-            summary = sharedPreferences!!.getString(key, null)
+        findPreference<SwitchPreference>("hideAppIcon")?.apply {
+            isChecked = pref!!.getBoolean("hideAppIcon", false)
+            setOnPreferenceChangeListener { preference, newValue ->
+                handler.sendEmptyMessageDelayed(if (newValue as Boolean) 0 else 1, 1000)
+                true
+            }
         }
     }
 }
