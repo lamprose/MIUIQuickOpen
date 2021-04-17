@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">MIUIQuickOpen</string>
+    <string name="pref_name" translatable="false">data</string>
+    <string name="pref_title">MIUIQuickOpen</string>
+    <string name="pref_top_title_text">instructions</string>
+    <string name="pref_top_title_summary">SystemUI needs to be restarted or will take effect after restarting (restart SystemUI in upper right corner)</string>
+    <string name="pref_title_text">QuickOpenItem</string>
+    <string name="wechat_pay_title">WechatPay</string>
+    <string name="wechat_scan_title">WechatScan</string>
+    <string name="xiaoai_title">Xiaoai</string>
+    <string name="alipay_pay_title">AlipayPay</string>
+    <string name="alipay_scan_title">AlipayScan</string>
+    <string name="menu_reboot_systemui">reboot systemui</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="root_title">
+    <!-- 提醒设置 -->
+    <PreferenceCategory
+        android:title="@string/pref_top_title_text"
+        android:summary="@string/pref_top_title_summary"/>
+    <PreferenceCategory
+        android:title="@string/pref_title_text">
+        <EditTextPreference
+            android:dialogTitle="@string/wechat_pay_title"
+            android:key="WechatPayItem"
+            android:title="@string/wechat_pay_title"
+            android:icon="@drawable/gxzw_quick_open_wechat_pay"/>
+        <EditTextPreference
+            android:dialogTitle="@string/wechat_scan_title"
+            android:key="WechatScanItem"
+            android:title="@string/wechat_scan_title"
+            android:icon="@drawable/gxzw_quick_open_wechat_scan"/>
+        <EditTextPreference
+            android:dialogTitle="@string/xiaoai_title"
+            android:key="XiaoaiItem"
+            android:enabled="false"
+            android:title="@string/xiaoai_title"
+            android:icon="@drawable/gxzw_quick_open_xiaoai"/>
+        <EditTextPreference
+            android:dialogTitle="@string/alipay_scan_title"
+            android:key="AlipayScanItem"
+            android:title="@string/alipay_scan_title"
+            android:icon="@drawable/gxzw_quick_open_alipay_scan"/>
+        <EditTextPreference
+            android:dialogTitle="@string/alipay_pay_title"
+            android:key="AlipayPayItem"
+            android:title="@string/alipay_pay_title"
+            android:icon="@drawable/gxzw_quick_open_alipay_pay"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

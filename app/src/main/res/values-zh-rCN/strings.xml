@@ -1,0 +1,12 @@
+<resources>
+    <string name="pref_title">小米指纹快捷功能修改</string>
+    <string name="pref_top_title_text">说明</string>
+    <string name="pref_top_title_summary">需要重启SystemUI或重启后生效(右上角重启SystemUI)</string>
+    <string name="pref_title_text">快捷功能</string>
+    <string name="wechat_pay_title">微信付款码</string>
+    <string name="wechat_scan_title">微信扫一扫</string>
+    <string name="xiaoai_title">小爱同学</string>
+    <string name="alipay_pay_title">支付宝付款码</string>
+    <string name="alipay_scan_title">支付宝扫一扫</string>
+    <string name="menu_reboot_systemui">重启系统界面</string>
+</resources>
