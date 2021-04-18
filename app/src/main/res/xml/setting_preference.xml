@@ -3,44 +3,48 @@
     android:title="root_title">
     <!-- 提醒设置 -->
     <PreferenceCategory
-        android:title="@string/pref_top_title_text"
-        android:summary="@string/pref_top_title_summary"/>
-    <PreferenceCategory
-        android:title="@string/pref_app_setting_title_text">
+        android:summary="@string/pref_top_title_summary"
+        android:title="@string/pref_top_title_text" />
+    <PreferenceCategory android:title="@string/pref_app_setting_title_text">
         <SwitchPreference
-            android:title="@string/hide_app_icon_text"
-            android:summaryOn="@string/hide_app_icon_on_summary"
+            android:key="@string/app_status_key"
+            android:persistent="false"
+            android:summaryOff="@string/app_status_off_summary"
+            android:summaryOn="@string/app_status_on_summary"
+            android:title="@string/hide_app_icon_text" />
+        <SwitchPreference
+            android:key="@string/hide_app_icon_key"
             android:summaryOff="@string/hide_app_icon_off_summary"
-            android:key="hideAppIcon"/>
+            android:summaryOn="@string/hide_app_icon_on_summary"
+            android:title="@string/hide_app_icon_text" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/pref_title_text">
+    <PreferenceCategory android:title="@string/pref_title_text">
         <EditTextPreference
             android:dialogTitle="@string/wechat_pay_title"
-            android:key="WechatPayItem"
-            android:title="@string/wechat_pay_title"
-            android:icon="@drawable/gxzw_quick_open_wechat_pay"/>
+            android:icon="@drawable/gxzw_quick_open_wechat_pay"
+            android:key="@string/wechat_pay_key"
+            android:title="@string/wechat_pay_title" />
         <EditTextPreference
             android:dialogTitle="@string/wechat_scan_title"
-            android:key="WechatScanItem"
-            android:title="@string/wechat_scan_title"
-            android:icon="@drawable/gxzw_quick_open_wechat_scan"/>
+            android:icon="@drawable/gxzw_quick_open_wechat_scan"
+            android:key="@string/wechat_scan_key"
+            android:title="@string/wechat_scan_title" />
         <EditTextPreference
             android:dialogTitle="@string/xiaoai_title"
-            android:key="XiaoaiItem"
             android:enabled="false"
-            android:title="@string/xiaoai_title"
-            android:icon="@drawable/gxzw_quick_open_xiaoai"/>
+            android:icon="@drawable/gxzw_quick_open_xiaoai"
+            android:key="@string/xiaoai_key"
+            android:title="@string/xiaoai_title" />
         <EditTextPreference
             android:dialogTitle="@string/alipay_scan_title"
-            android:key="AlipayScanItem"
-            android:title="@string/alipay_scan_title"
-            android:icon="@drawable/gxzw_quick_open_alipay_scan"/>
+            android:icon="@drawable/gxzw_quick_open_alipay_scan"
+            android:key="@string/alipay_scan_key"
+            android:title="@string/alipay_scan_title" />
         <EditTextPreference
             android:dialogTitle="@string/alipay_pay_title"
-            android:key="AlipayPayItem"
-            android:title="@string/alipay_pay_title"
-            android:icon="@drawable/gxzw_quick_open_alipay_pay"/>
+            android:icon="@drawable/gxzw_quick_open_alipay_pay"
+            android:key="@string/alipay_pay_key"
+            android:title="@string/alipay_pay_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

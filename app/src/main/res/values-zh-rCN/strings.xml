@@ -6,6 +6,9 @@
     <string name="hide_app_icon_text">隐藏图标</string>
     <string name="hide_app_icon_on_summary">已隐藏桌面图标,可在xposed框架内打开</string>
     <string name="hide_app_icon_off_summary">已关闭</string>
+    <string name="app_status_text">激活状态</string>
+    <string name="app_status_on_summary">已激活</string>
+    <string name="app_status_off_summary">未激活</string>
     <string name="pref_title_text">快捷功能</string>
     <string name="wechat_pay_title">微信付款码</string>
     <string name="wechat_scan_title">微信扫一扫</string>

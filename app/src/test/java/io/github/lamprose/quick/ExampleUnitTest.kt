@@ -1,4 +1,4 @@
-package com.github.lamprose.quick
+package io.github.lamprose.quick
 
 import org.junit.Test
 

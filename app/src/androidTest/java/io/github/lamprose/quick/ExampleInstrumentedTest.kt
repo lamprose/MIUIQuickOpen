@@ -1,4 +1,4 @@
-package com.github.lamprose.quick
+package io.github.lamprose.quick
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

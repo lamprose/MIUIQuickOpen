@@ -1,4 +1,4 @@
-package com.github.lamprose.quick
+package io.github.lamprose.quick
 
 import android.content.ComponentName
 import android.content.Context
@@ -19,6 +19,7 @@ import java.util.concurrent.TimeoutException
 class MainActivity : AppCompatActivity() {
     var context: Context? = null
     var handler: Handler? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,7 +46,10 @@ class MainActivity : AppCompatActivity() {
         addToolbar()
         //加载PrefFragment
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment, SettingFragment(handler!!))
+            .add(
+                R.id.fragment,
+                SettingsFragment(handler!!)
+            )
             .commit()
     }
 
