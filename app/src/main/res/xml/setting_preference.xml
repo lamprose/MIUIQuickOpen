@@ -31,7 +31,6 @@
             android:title="@string/wechat_scan_title" />
         <EditTextPreference
             android:dialogTitle="@string/xiaoai_title"
-            android:enabled="false"
             android:icon="@drawable/gxzw_quick_open_xiaoai"
             android:key="@string/xiaoai_key"
             android:title="@string/xiaoai_title" />

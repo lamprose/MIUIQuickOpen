@@ -17,8 +17,8 @@ import java.util.concurrent.TimeoutException
 
 
 class MainActivity : AppCompatActivity() {
-    var context: Context? = null
-    var handler: Handler? = null
+    private var context: Context? = null
+    private var handler: Handler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.reboot_systemui -> {
                     if (RootTools.isRootAvailable()) {
-                        // su exists, do something
                         val commandStr = "pkill -f com.android.systemui"
                         val command = Command(0, commandStr)
                         try {
@@ -79,7 +78,6 @@ class MainActivity : AppCompatActivity() {
                             e.printStackTrace()
                         }
                     } else {
-                        // do something else
                         Toast.makeText(this, "请授予root权限", Toast.LENGTH_SHORT).show()
                     }
                 }

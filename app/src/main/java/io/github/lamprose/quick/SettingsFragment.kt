@@ -1,21 +1,17 @@
 package io.github.lamprose.quick
 
 import android.annotation.SuppressLint
-import android.content.ComponentName
 import android.content.Context
 import android.content.Context.MODE_WORLD_READABLE
-import android.content.Intent
 import android.content.SharedPreferences
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
-import android.widget.Toast
 import androidx.preference.EditTextPreference
 import androidx.preference.SwitchPreference
-import androidx.preference.get
 
+@Suppress("DEPRECATION")
 class SettingsFragment(private val handler: Handler) : BasePreferenceFragment() {
-    var pref: SharedPreferences? = null
+    private var pref: SharedPreferences? = null
     private var editArray: Array<String>? = null
 
     private fun isModuleActivated(): Boolean {
