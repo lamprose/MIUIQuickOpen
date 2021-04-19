@@ -11,7 +11,7 @@
             android:persistent="false"
             android:summaryOff="@string/app_status_off_summary"
             android:summaryOn="@string/app_status_on_summary"
-            android:title="@string/hide_app_icon_text" />
+            android:title="@string/app_status_text" />
         <SwitchPreference
             android:key="@string/hide_app_icon_key"
             android:summaryOff="@string/hide_app_icon_off_summary"
