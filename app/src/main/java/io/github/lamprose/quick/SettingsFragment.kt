@@ -1,15 +1,12 @@
 package io.github.lamprose.quick
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Context.MODE_WORLD_READABLE
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import androidx.preference.EditTextPreference
 import androidx.preference.SwitchPreference
 
-@Suppress("DEPRECATION")
 class SettingsFragment(private val handler: Handler) : BasePreferenceFragment() {
     private var pref: SharedPreferences? = null
     private var editArray: Array<String>? = null
@@ -30,16 +27,15 @@ class SettingsFragment(private val handler: Handler) : BasePreferenceFragment() 
     }
 
 
-    @SuppressLint("WorldReadableFiles")
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         //加载xml文件
         setPreferencesFromResource(R.xml.setting_preference, rootKey)
         preferenceManager.sharedPreferencesName = getString(R.string.pref_name)
-        preferenceManager.sharedPreferencesMode = MODE_WORLD_READABLE
+        preferenceManager.sharedPreferencesMode = Context.MODE_PRIVATE
         pref = try {
             activity?.getSharedPreferences(
                 getString(R.string.pref_name),
-                MODE_WORLD_READABLE
+                Context.MODE_PRIVATE
             )
         } catch (e: SecurityException) {
             preferenceManager.preferenceScreen.isEnabled = false

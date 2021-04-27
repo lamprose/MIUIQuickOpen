@@ -7,6 +7,7 @@
         android:title="@string/pref_top_title_text" />
     <PreferenceCategory android:title="@string/pref_app_setting_title_text">
         <SwitchPreference
+            android:enabled="false"
             android:key="@string/app_status_key"
             android:persistent="false"
             android:summaryOff="@string/app_status_off_summary"
