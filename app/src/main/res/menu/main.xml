@@ -2,8 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/reboot_systemui"
+        android:id="@+id/menu_reboot_systemui"
         android:title="@string/menu_reboot_systemui"
+        app:showAsAction="never">
+    </item>
+    <item
+        android:id="@+id/menu_about"
+        android:title="@string/menu_about_title"
         app:showAsAction="never">
     </item>
 </menu>

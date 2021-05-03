@@ -1,5 +1,5 @@
 <resources>
-    <string name="pref_title">小米指纹快捷功能修改</string>
+    <string name="pref_title">小米指纹快捷功能</string>
     <string name="pref_top_title_text">说明</string>
     <string name="pref_app_setting_title_text">APP设置</string>
     <string name="pref_top_title_summary">需要重启SystemUI或重启后生效(右上角重启SystemUI)</string>
@@ -15,5 +15,7 @@
     <string name="xiaoai_title">小爱同学</string>
     <string name="alipay_pay_title">支付宝付款码</string>
     <string name="alipay_scan_title">支付宝扫一扫</string>
-    <string name="menu_reboot_systemui">重启系统界面</string>
+    <string name="menu_reboot_systemui">重启SystemUI</string>
+    <string name="menu_about_title">关于</string>
+    <string name="dialog_about_message">我是 lamprose(离司@CoolApk)</string>
 </resources>

@@ -2,11 +2,14 @@ package io.github.lamprose.quick
 
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.stericson.RootShell.exceptions.RootDeniedException
@@ -64,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.reboot_systemui -> {
+                R.id.menu_reboot_systemui -> {
                     if (RootTools.isRootAvailable()) {
                         val commandStr = "pkill -f com.android.systemui"
                         val command = Command(0, commandStr)
@@ -81,9 +84,38 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "请授予root权限", Toast.LENGTH_SHORT).show()
                     }
                 }
+                R.id.menu_about -> showAbout()
             }
             return@setOnMenuItemClickListener false
         }
+    }
+
+    private fun showAbout() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.menu_about_title)
+            .setMessage(R.string.dialog_about_message)
+            .setCancelable(true)
+            .setPositiveButton(
+                "CoolApk"
+            ) { _, _ ->
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("http://www.coolapk.com/u/1033375")
+                    )
+                )
+            }
+            .setNegativeButton(
+                "Github"
+            ) { _, _ ->
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://github.com/lamprose/MIUIQuickOpen")
+                    )
+                )
+            }
+            .create().show()
     }
 
 }

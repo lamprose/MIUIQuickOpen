@@ -1,15 +1,12 @@
 package io.github.lamprose.quick.xposed
 
 import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import com.github.kyuubiran.ezxhelper.utils.*
-import de.robv.android.xposed.XC_MethodHook
+import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
-import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
-import io.github.lamprose.quick.utils.PreferencesProviderUtils
+import io.github.lamprose.quick.BuildConfig
 
 
 class MainHook {
@@ -24,6 +21,10 @@ class MainHook {
             "AlipayPayItem"
         )
 
+        private val pref by lazy {
+            val pref = XSharedPreferences(BuildConfig.APPLICATION_ID, "data")
+            return@lazy if (pref.file.canRead()) pref else null
+        }
 
         fun hookQuickOpen() {
             hookOpenView()
@@ -57,6 +58,7 @@ class MainHook {
         private fun hookQuickOpenItem() {
             try {
                 for (item in HOOK_CLASSNAME_LIST) {
+                    val target: String = pref!!.getString(item, null) ?: continue
                     findMethodByCondition("$HOOK_CLASSNAME_PREFIX.$item") {
                         it.name == "getIntent" || it.name == "startActionByService"
                     }.also { hookMethod ->
@@ -66,14 +68,6 @@ class MainHook {
                             }
                         else if (hookMethod.name == "getIntent")
                             hookMethod.hookBefore {
-                                val target: String = PreferencesProviderUtils.getString(
-                                    it.thisObject?.getObjectOrNull(
-                                        "mContext",
-                                        Context::class.java
-                                    ) as Context,
-                                    "data",
-                                    item
-                                ).takeUnless { value -> value.isBlank() } ?: return@hookBefore
                                 XposedBridge.log("$item is $target")
                                 val intent = Intent(Intent.ACTION_VIEW)
                                 when {

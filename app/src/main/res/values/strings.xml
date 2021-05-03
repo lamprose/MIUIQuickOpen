@@ -4,7 +4,7 @@
     <string name="pref_title">MIUIQuickOpen</string>
     <string name="pref_top_title_text">instructions</string>
     <string name="pref_top_title_summary">SystemUI needs to be restarted or will take effect after restarting (restart SystemUI in upper right corner)</string>
-    <string name="pref_app_setting_title_text">app setting</string>
+    <string name="pref_app_setting_title_text">app settings</string>
     <string name="hide_app_icon_text">hide app icon</string>
     <string name="hide_app_icon_on_summary">Has hidden app icon,it can be opened in the xposed module manager</string>
     <string name="hide_app_icon_off_summary">not hide app icon</string>
@@ -18,7 +18,9 @@
     <string name="xiaoai_title">Xiaoai</string>
     <string name="alipay_pay_title">AlipayPay</string>
     <string name="alipay_scan_title">AlipayScan</string>
-    <string name="menu_reboot_systemui">reboot systemui</string>
+    <string name="menu_reboot_systemui">reboot SystemUI</string>
+    <string name="menu_about_title">About</string>
+    <string name="dialog_about_message">I\'m lamprose(离司@CoolApk)</string>
 
     <string name="app_status_key" translatable="false">appStatus</string>
     <string name="hide_app_icon_key" translatable="false">hideAppIcon</string>
@@ -27,6 +29,7 @@
     <string name="xiaoai_key" translatable="false">XiaoaiItem</string>
     <string name="alipay_pay_key" translatable="false">AlipayPayItem</string>
     <string name="alipay_scan_key" translatable="false">AlipayScanItem</string>
+
 
 
 </resources>
