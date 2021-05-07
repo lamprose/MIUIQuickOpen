@@ -8,15 +8,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.stericson.RootShell.exceptions.RootDeniedException
-import com.stericson.RootShell.execution.Command
-import com.stericson.RootTools.RootTools
-import java.io.IOException
-import java.util.concurrent.TimeoutException
+import java.io.DataOutputStream
+import kotlin.system.exitProcess
 
 
 class MainActivity : AppCompatActivity() {
@@ -68,20 +64,16 @@ class MainActivity : AppCompatActivity() {
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.menu_reboot_systemui -> {
-                    if (RootTools.isRootAvailable()) {
-                        val commandStr = "pkill -f com.android.systemui"
-                        val command = Command(0, commandStr)
-                        try {
-                            RootTools.getShell(true).add(command)
-                        } catch (e: IOException) {
-                            e.printStackTrace()
-                        } catch (e: TimeoutException) {
-                            e.printStackTrace()
-                        } catch (e: RootDeniedException) {
-                            e.printStackTrace()
-                        }
+                    val suProcess = Runtime.getRuntime().exec("su")
+                    val os = DataOutputStream(suProcess.outputStream)
+                    os.writeBytes("pkill -f com.android.systemui")
+                    os.flush()
+                    os.close()
+                    val exitValue = suProcess.waitFor()
+                    if (exitValue == 0) {
+                        exitProcess(0)
                     } else {
-                        Toast.makeText(this, "请授予root权限", Toast.LENGTH_SHORT).show()
+                        throw Exception()
                     }
                 }
                 R.id.menu_about -> showAbout()

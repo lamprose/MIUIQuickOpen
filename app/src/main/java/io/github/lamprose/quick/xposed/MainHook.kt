@@ -23,7 +23,10 @@ class MainHook {
 
         private val pref by lazy {
             val pref = XSharedPreferences(BuildConfig.APPLICATION_ID, "data")
-            return@lazy if (pref.file.canRead()) pref else null
+            return@lazy if (pref.file.canRead()) pref else {
+                XposedBridge.log("pref is can't be read")
+                null
+            }
         }
 
         fun hookQuickOpen() {
@@ -38,9 +41,11 @@ class MainHook {
                             it.parameterTypes[0] == loadClass("$HOOK_CLASSNAME_PREFIX.IQuickOpenItem")
                 }.also { hookMethod ->
                     XposedBridge.log("find hook method")
+                    Log.d("find hook method")
                     hookMethod.hookBefore {
                         val intent: Intent = it.args?.get(0)?.invokeMethod("getIntent") as Intent
                         XposedBridge.log("intent ${intent.data}")
+                        Log.d("intent ${intent.data}")
                         it.thisObject.invokeMethod(
                             "startActivitySafely",
                             arrayOf(intent),
@@ -82,6 +87,7 @@ class MainHook {
                                         )
                                     }
                                     else -> {
+                                        Log.d("error:$item's parameter is not valid")
                                         XposedBridge.log("[MIUIQuickOpen] error:$item's parameter is not valid")
                                         return@hookBefore
                                     }
