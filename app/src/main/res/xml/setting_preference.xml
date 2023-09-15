@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="root_title">
     <!-- 提醒设置 -->
     <PreferenceCategory
@@ -45,6 +46,31 @@
             android:icon="@drawable/gxzw_quick_open_alipay_pay"
             android:key="@string/alipay_pay_key"
             android:title="@string/alipay_pay_title" />
+        <EditTextPreference
+            android:dialogTitle="@string/add_event_title"
+            android:icon="@drawable/gxzw_quick_open_add_event"
+            android:key="@string/add_event_key"
+            android:title="@string/add_event_title" />
+        <EditTextPreference
+            android:dialogTitle="@string/add_note_title"
+            android:icon="@drawable/gxzw_quick_open_add_note"
+            android:title="@string/add_note_title"
+            app:key="@string/add_note_key" />
+        <EditTextPreference
+            android:dialogTitle="@string/dialer_title"
+            android:icon="@drawable/gxzw_quick_open_dialer"
+            android:key="@string/dialer_key"
+            android:title="@string/dialer_title" />
+        <EditTextPreference
+            android:dialogTitle="@string/qr_code_title"
+            android:icon="@drawable/gxzw_quick_open_qr_code"
+            android:key="@string/qr_code_key"
+            android:title="@string/qr_code_title" />
+        <EditTextPreference
+            android:dialogTitle="@string/search_title"
+            android:icon="@drawable/gxzw_quick_open_search"
+            android:key="@string/search_key"
+            android:title="@string/search_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

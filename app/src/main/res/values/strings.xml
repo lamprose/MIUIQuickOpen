@@ -18,6 +18,11 @@
     <string name="xiaoai_title">Xiaoai</string>
     <string name="alipay_pay_title">AlipayPay</string>
     <string name="alipay_scan_title">AlipayScan</string>
+    <string name="add_event_title">AddEvent</string>
+    <string name="add_note_title">AddNote</string>
+    <string name="dialer_title">Dialer</string>
+    <string name="qr_code_title">QRCode</string>
+    <string name="search_title">Search</string>
     <string name="menu_reboot_systemui">reboot SystemUI</string>
     <string name="menu_about_title">About</string>
     <string name="dialog_about_message">I\'m lamprose(离司@CoolApk)</string>
@@ -29,6 +34,11 @@
     <string name="xiaoai_key" translatable="false">XiaoaiItem</string>
     <string name="alipay_pay_key" translatable="false">AlipayPayItem</string>
     <string name="alipay_scan_key" translatable="false">AlipayScanItem</string>
+    <string name="add_event_key" translatable="false">AddEventItem</string>
+    <string name="add_note_key" translatable="false">AddNoteItem</string>
+    <string name="dialer_key" translatable="false">DialerItem</string>
+    <string name="qr_code_key" translatable="false">QrCodeItem</string>
+    <string name="search_key" translatable="false">SearchItem</string>
 
 
 
