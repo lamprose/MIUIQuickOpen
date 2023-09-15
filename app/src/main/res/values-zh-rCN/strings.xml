@@ -15,6 +15,11 @@
     <string name="xiaoai_title">小爱同学</string>
     <string name="alipay_pay_title">支付宝付款码</string>
     <string name="alipay_scan_title">支付宝扫一扫</string>
+    <string name="add_event_title">日历事件</string>
+    <string name="add_note_title">快速笔记</string>
+    <string name="dialer_title">拨号</string>
+    <string name="qr_code_title">扫一扫</string>
+    <string name="search_title">搜索</string>
     <string name="menu_reboot_systemui">重启SystemUI</string>
     <string name="menu_about_title">关于</string>
     <string name="dialog_about_message">我是 lamprose(离司@CoolApk)</string>
