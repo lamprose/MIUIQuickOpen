@@ -3,7 +3,11 @@ package io.github.lamprose.quick.xposed
 import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
-import com.github.kyuubiran.ezxhelper.utils.*
+import com.github.kyuubiran.ezxhelper.utils.Log
+import com.github.kyuubiran.ezxhelper.utils.findMethodByCondition
+import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.github.kyuubiran.ezxhelper.utils.invokeMethod
+import com.github.kyuubiran.ezxhelper.utils.loadClass
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
 import io.github.lamprose.quick.BuildConfig
@@ -18,7 +22,12 @@ class MainHook {
             "WechatScanItem",
             "XiaoaiItem",
             "AlipayScanItem",
-            "AlipayPayItem"
+            "AlipayPayItem",
+            "AddEventItem",
+            "AddNoteItem",
+            "DialerItem",
+            "QrCodeItem",
+            "SearchItem"
         )
 
         private val pref by lazy {

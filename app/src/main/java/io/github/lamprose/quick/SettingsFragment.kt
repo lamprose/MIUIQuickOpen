@@ -6,8 +6,6 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import androidx.preference.EditTextPreference
-import androidx.preference.Preference
-import androidx.preference.PreferenceCategory
 import androidx.preference.SwitchPreference
 
 @Suppress("DEPRECATION")
@@ -26,7 +24,12 @@ class SettingsFragment(private val handler: Handler) : BasePreferenceFragment() 
             requireActivity().getString(R.string.wechat_scan_key),
             requireActivity().getString(R.string.xiaoai_key),
             requireActivity().getString(R.string.alipay_scan_key),
-            requireActivity().getString(R.string.alipay_pay_key)
+            requireActivity().getString(R.string.alipay_pay_key),
+            requireActivity().getString(R.string.add_event_key),
+            requireActivity().getString(R.string.add_note_key),
+            requireActivity().getString(R.string.dialer_key),
+            requireActivity().getString(R.string.search_key),
+            requireActivity().getString(R.string.qr_code_key)
         )
     }
 
